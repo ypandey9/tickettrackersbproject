@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Find Events</title>
+</head>
+<body>
+    <h1>Find Events Between Dates</h1>
+    <form th:action="@{/filter}" method="get">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+        <button type="submit">Find Events</button>
+    </form>
+</body>
+</html>

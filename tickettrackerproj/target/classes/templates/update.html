@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>
+Update Employee
+</title>
+</head>
+<body>
+<h1>Update employee</h1>
+<form th:action="@{/update/{id}(id=${ticket.id})}" method="post" th:object="${ticket}">
+<input type="hidden" name="_method" value="put">
+<input type="text" th:field="*{ticketTitle}" placeholder="Title" required>
+<input type="text" th:field="*{ticketShortDescription}" placeholder="ticketShortDescription" required>
+<input type="text" th:field="*{content}" placeholder="content" required>
+<button type="submit">Update</button>
+</form>
+</body>
+</html>

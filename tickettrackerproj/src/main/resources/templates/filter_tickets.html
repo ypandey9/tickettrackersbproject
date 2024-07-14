@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Events</title>
+    <style type="text/css">
+    form {
+    display:inline;
+    }
+    </style>
+</head>
+<body>
+    <h1>Events Between Dates</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+                <th>CONTENT</th>
+                <th>DATE</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ticket : ${tickets}">
+                <td th:text="${ticket.id}"></td>
+                <td th:text="${ticket.ticketTitle}"></td>
+                <td th:text="${ticket.ticketShortDescription}"></td>
+                <td th:text="${ticket.content}"></td>
+                <td th:text="${ticket.ticketCreatedOn}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+     <form th:action="@{/export}" method="get">
+        <input type="hidden" name="startDate" th:value="${startDate}">
+        <input type="hidden" name="endDate" th:value="${endDate}">
+        <button type="submit">Export to Excel</button>
+    </form>
+    
+    <form th:action="@{/exportpdf}" method="get">
+        <input type="hidden" name="startDate" th:value="${startDate}">
+        <input type="hidden" name="endDate" th:value="${endDate}">
+        <button type="submit">Export to PDF</button>
+    </form>
+    
+    <form th:action="@{/exporttext}" method="get">
+        <input type="hidden" name="startDate" th:value="${startDate}">
+        <input type="hidden" name="endDate" th:value="${endDate}">
+        <button type="submit">Export to Text</button>
+    </form>
+    
+    <a th:href="@{/}">Back</a>
+</body>
+</html>

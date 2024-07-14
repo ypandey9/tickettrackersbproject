@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View Ticket</title>
+</head>
+<body>
+<h1>Ticket Details</h1>
+<b>Ticket Id :</b> <p th:text="${tc.id}"></p>
+<b>Ticket Title :</b> <p th:text="${tc.ticketTitle}"></p>
+<b>Ticket Description : </b> <p th:text="${tc.ticketShortDescription}"></p>
+<b>Ticket Content : </b> <p th:text="${tc.content}"></p>
+</body>
+</html>
